@@ -6,6 +6,11 @@
 
 static uint8_t uart_buffer[UART_BUFFER_SIZE];
 
+/**
+ * @brief Initialize UART interface
+ * 
+ * @param ubrr 
+ */
 void initUART(uint8_t ubrr)
 {
 	// Set Baud Rate
@@ -19,6 +24,12 @@ void initUART(uint8_t ubrr)
 	// Set up frame format
 	UCSR0C |= _BV(UCSZ01) | _BV(UCSZ00);
 }
+
+/**
+ * @brief Transmits a character via UART
+ * 
+ * @param cp 
+ */
 void uartTransmitChar(uint8_t *cp)
 
 {
@@ -26,6 +37,11 @@ void uartTransmitChar(uint8_t *cp)
 		UDR0 = *cp;
 }
 
+/**
+ * @brief Trnsmits a string via UART
+ * 
+ * @param str 
+ */
 void uartTransmitStr(uint8_t *str)
 {
 	uint8_t *cp;
@@ -39,6 +55,10 @@ void uartTransmitStr(uint8_t *str)
 	}
 }
 
+/**
+ * @brief Checks the UART error registers
+ * 
+ */
 void check_uart_error()
 {
 	if (bit_is_set(UCSR0A, FE0))
@@ -49,6 +69,12 @@ void check_uart_error()
 		uartTransmitStr("Parity error\n");
 }
 
+
+/**
+ * @brief Checks how much data the buffer contains
+ * 
+ * @return uint8_t the number of bytes
+ */
 uint8_t checkUartBuffer()
 {
 	if (uart_buffer[0])
@@ -63,6 +89,10 @@ uint8_t checkUartBuffer()
 		return 0;
 }
 
+/**
+ * @brief echoes the content of the buffer for debugging purposes
+ * 
+ */
 void echoUartBuffer()
 {
 	uartTransmitStr(uart_buffer);
