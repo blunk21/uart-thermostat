@@ -8,7 +8,7 @@ static uint8_t current_temp[2] = {0, 0};
 static uint8_t *current_temp_string[5];
 char debugstring[100];
 
-void initializeADC()
+void initADC()
 {
     ADMUX |= _BV(REFS0);                            // select voltage reference Vcc 2.65V
     ADCSRA |= _BV(ADPS0) | _BV(ADPS1) | _BV(ADPS2); // prescaler 128	-> 125kHz
@@ -18,11 +18,12 @@ void initializeADC()
     // ADCSRA |= _BV(ADSC); //first conv lasts longer
 }
 
-void adcConversion()
+void pollTemp()
 {
     ADCSRA |= _BV(ADSC);
     loop_until_bit_is_set(ADCSRA, ADIF);
     uint16_t adcval = ADC;
+    log_adc_val(adcval);
     registerTemp(adcval);
 }
 
