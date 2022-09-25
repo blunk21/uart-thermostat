@@ -3,6 +3,10 @@
         "interrupt.h": "c",
         "uart.h": "c",
         "inttypes.h": "c",
-        "stdio.h": "c"
-    }
+        "stdio.h": "c",
+        "scheduler.h": "c",
+        "sched.h": "c",
+        "cpu-set.h": "c"
+    },
+    "C_Cpp.dimInactiveRegions": false
 }

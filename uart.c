@@ -6,7 +6,7 @@
 
 static uint8_t uart_buffer[UART_BUFFER_SIZE];
 
-void initializeUART(uint8_t ubrr)
+void initUART(uint8_t ubrr)
 {
 	// Set Baud Rate
 	UBRR0H = (UBRR >> 8);
@@ -34,7 +34,7 @@ void uartTransmitStr(uint8_t *str)
 	{
 		while (bit_is_clear(UCSR0A, UDRE0))
 			;
-		uart_transmit_char(cp);
+		uartTransmitChar(cp);
 		cp++;
 	}
 }
@@ -42,11 +42,11 @@ void uartTransmitStr(uint8_t *str)
 void check_uart_error()
 {
 	if (bit_is_set(UCSR0A, FE0))
-		uart_transmit_str("Frame receive error\n");
+		uartTransmitStr("Frame receive error\n");
 	else if (bit_is_set(UCSR0A, DOR0))
-		uart_transmit_str("Data overrun errori\n");
+		uartTransmitStr("Data overrun errori\n");
 	else if (bit_is_set(UCSR0A, UPE0))
-		uart_transmit_str("Parity error\n");
+		uartTransmitStr("Parity error\n");
 }
 
 uint8_t checkUartBuffer()
@@ -65,5 +65,5 @@ uint8_t checkUartBuffer()
 
 void echoUartBuffer()
 {
-	uart_transmit_str(uart_buffer);
+	uartTransmitStr(uart_buffer);
 }
