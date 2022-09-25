@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/avr/**"
+                "/usr/avr/**",
+                "/usr/avr/include"
             ],
             "defines": [
                 "__AVR_ATmega128__"
@@ -12,8 +13,7 @@
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
             "cppStandard": "c++14",
-            "intelliSenseMode": "linux-clang-x64",
-            "configurationProvider": "ms-vscode.makefile-tools"
+            "intelliSenseMode": "linux-clang-x64"
         }
     ],
     "version": 4
