@@ -8,6 +8,10 @@ static uint8_t current_temp[2] = {0, 0};
 static uint8_t *current_temp_string[5];
 char debugstring[100];
 
+/**
+ * @brief Initialize ADC peripheral
+ * 
+ */
 void initADC()
 {
     ADMUX |= _BV(REFS0);                            // select voltage reference Vcc 2.65V
@@ -18,6 +22,10 @@ void initADC()
     // ADCSRA |= _BV(ADSC); //first conv lasts longer
 }
 
+/**
+ * @brief Initiates a conversion and stores a value in integer and string format.
+ * 
+ */
 void pollTemp()
 {
     ADCSRA |= _BV(ADSC);
@@ -26,6 +34,11 @@ void pollTemp()
     registerTemp(adcval);
 }
 
+/**
+ * @brief Logs the adc value for debugging purposes
+ * 
+ * @param val 
+ */
 void log_adc_val(uint16_t val)
 {
     uint8_t printable_adc_val[50];
@@ -34,6 +47,11 @@ void log_adc_val(uint16_t val)
     uartTransmitStr("\n");
 }
 
+/**
+ * @brief Converts the ADC value into temperature and stores it in string and integer format.
+ * 
+ * @param val 
+ */
 void registerTemp(uint16_t val)
 {
     uint16_t tmp = 0;
@@ -47,6 +65,11 @@ void registerTemp(uint16_t val)
     sprintf(current_temp_string, "%d.%d", current_temp[0], current_temp[1]);
 }
 
+/**
+ * @brief Get the Temp String 
+ * 
+ * @return uint8_t* 
+ */
 uint8_t *getTempString()
 {
     return current_temp_string;

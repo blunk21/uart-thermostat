@@ -2,10 +2,9 @@
 #include <avr/interrupt.h>
 #include "uart.h"
 #include "scheduler.h"
+#include "lm35.h"
 #define F_CPU 16000000UL
 
-#include <util/delay.h>
-#include "lm35.h"
 
 void main()
 {

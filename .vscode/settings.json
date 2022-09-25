@@ -6,7 +6,8 @@
         "stdio.h": "c",
         "scheduler.h": "c",
         "sched.h": "c",
-        "cpu-set.h": "c"
+        "cpu-set.h": "c",
+        "io.h": "c"
     },
     "C_Cpp.dimInactiveRegions": false
 }
