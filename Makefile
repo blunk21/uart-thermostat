@@ -3,7 +3,8 @@ F_CPU = 16000000UL
 #8Mhz tbird3-nal
 MCU        = atmega128
 PORT       = /dev/ttyUSB0
-PROGRAMMER = jtag1#jtag2 at64-en
+PROGRAMMER = jtag1
+#jtag2 at64-en
 
 LIBDIR   = vendor
 
