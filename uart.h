@@ -7,12 +7,12 @@
 #define UBRR ((F_CPU / 8 / BAUD_RATE) - 1)
 #define UART_BUFFER_SIZE 80
 
-void initialize_uart(uint8_t);
-void uart_transmit_char(uint8_t *);
-void uart_receive(void);
-void uart_transmit_str(uint8_t *);
+void initializeUART(uint8_t);
+void uartTransmitChar(uint8_t *);
+void uartReceive(void);
+void uartTransmitStr(uint8_t *);
 void check_uart_error();
-uint8_t check_buffer();
-void echo_buffer();
+uint8_t checkUartBuffer();
+void echoUartBuffer();
 
 #endif
