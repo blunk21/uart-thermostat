@@ -2,5 +2,7 @@
     "files.associations": {
         "interrupt.h": "c",
         "uart.h": "c",
+        "inttypes.h": "c",
+        "stdio.h": "c"
     }
 }
