@@ -8,6 +8,6 @@
  */
 void initSchedulerTimer(void)
 {
-    TCCR0 = _BV(CS02); //510us tick
+    TCCR0 = _BV(CS01); //510us tick
     TIMSK |= _BV(TOIE0);
 }
