@@ -18,7 +18,7 @@ void main()
     sei();
 
     // add tasks
-    addTask(1, pollTemp, 6000);
+    addTask(1, pollTemp, 60000);
 
     for (;;)
         dispatchTasks();
@@ -29,7 +29,7 @@ ISR(TIMER0_OVF_vect)
 {
     static uint16_t counter = 0;
     counter++;
-    if (counter == 2) // 1ms
+    if (counter == 8) // 1ms
     {
         counter = 0;
         tickTasks();
