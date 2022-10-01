@@ -3,6 +3,7 @@
 #include "uart.h"
 #include "scheduler.h"
 #include "lm35.h"
+#include "room_manager.h"
 #define F_CPU 16000000UL
 
 
@@ -12,6 +13,8 @@ void main()
     initUART(UBRR);
     initADC();
     initScheduler();
+    initRoomManager();
+    
 
     // enable global interrupt
     sei();
