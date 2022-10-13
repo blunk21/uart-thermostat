@@ -3,8 +3,9 @@
 #include "uart.h"
 #include "scheduler.h"
 #include "lm35.h"
+#include "room_manager.h"
+#include "display_manager.h"
 #define F_CPU 16000000UL
-
 
 void main()
 {
@@ -12,12 +13,15 @@ void main()
     initUART(UBRR);
     initADC();
     initScheduler();
+    initRoomManager();
+    initDisplayManager();
 
     // enable global interrupt
     sei();
 
     // add tasks
-    addTask(1, pollTemp, 60000);
+    addTask(1, taskPollTemp, INTERVAL_POLL_TEMP_MS);
+    addTask(2,taskPrintPage,INTERVAL_PRINT_PAGE_MS);
 
     for (;;)
         dispatchTasks();

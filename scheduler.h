@@ -8,6 +8,10 @@
 #define ERROR    (0x03)
 #define MAX_TASKS (10)
 
+//TIMES
+#define INTERVAL_POLL_TEMP_MS 60000
+#define INTERVAL_PRINT_PAGE_MS 100
+
 
 /**
  * @brief points to a task function
