@@ -4,8 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/avr/**",
-                "/usr/avr/include"
+                "/lib/avr/**",
+                "/lib/avr/include"
             ],
             "defines": [
                 "__AVR_ATmega128__"

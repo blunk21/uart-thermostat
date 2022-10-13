@@ -2,15 +2,16 @@
 #include "uart.h"
 #include "inttypes.h"
 #include "stdio.h"
+#include "room_manager.h"
 #include <avr/io.h>
 
-static uint8_t current_temp[2] = {0, 0};
+static uint16_t current_temp = 0;
 static uint8_t *current_temp_string[5];
 char debugstring[100];
 
 /**
  * @brief Initialize ADC peripheral
- * 
+ *
  */
 void initADC()
 {
@@ -20,24 +21,30 @@ void initADC()
 
     ADCSRA |= _BV(ADEN); // enable adc
     // ADCSRA |= _BV(ADSC); //first conv lasts longer
+
+    //do a quick measurement so that we have a current_temp at the beginning
+    taskPollTemp();
 }
 
 /**
  * @brief Initiates a conversion and stores a value in integer and string format.
- * 
+ *
  */
-void pollTemp()
+void taskPollTemp()
 {
     ADCSRA |= _BV(ADSC);
     loop_until_bit_is_set(ADCSRA, ADIF);
     uint16_t adcval = ADC;
     registerTemp(adcval);
+
+   
+
 }
 
 /**
  * @brief Logs the adc value for debugging purposes
- * 
- * @param val 
+ *
+ * @param val
  */
 void log_adc_val(uint16_t val)
 {
@@ -49,8 +56,8 @@ void log_adc_val(uint16_t val)
 
 /**
  * @brief Converts the ADC value into temperature and stores it in string and integer format.
- * 
- * @param val 
+ *
+ * @param val
  */
 void registerTemp(uint16_t val)
 {
@@ -59,16 +66,28 @@ void registerTemp(uint16_t val)
     tmp = tmp / 102;
     uint8_t decimal = tmp % 10;
     uint8_t temp = (tmp / 10) % 100;
-    current_temp[0] = temp;
-    current_temp[1] = decimal;
+    current_temp = tmp;
+    sprintf(current_temp_string, "%d.%d", temp, decimal);
 
-    sprintf(current_temp_string, "%d.%d", current_temp[0], current_temp[1]);
+
+    uint8_t room = 4;
+    while(room!=0)
+    {
+        setRoomTemp(room,tmp+(room-1)*5);
+        room--;
+    }
+    // log_adc_val(tmp);
+}
+
+uint16_t getCurrentTemp()
+{
+    return current_temp;
 }
 
 /**
- * @brief Get the Temp String 
- * 
- * @return uint8_t* 
+ * @brief Get the Temp String
+ *
+ * @return uint8_t*
  */
 uint8_t *getTempString()
 {

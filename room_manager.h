@@ -7,8 +7,8 @@
 typedef struct Room
 {
     uint8_t number;
-    uint8_t target_temperature_num;
-    uint8_t target_temperature_dec;
+    uint16_t target_temperature;
+    uint16_t current_temp;
     uint8_t cooling;
 
 } Room;
@@ -19,5 +19,6 @@ uint16_t getTargetRoomTemp(uint8_t room_no);
 void setTargetRoomTemp(uint8_t room_no, uint16_t target);
 uint8_t getRoomCooling(uint8_t);
 void setRoomCooling(uint8_t, uint8_t);
+uint16_t getRoomTemp(uint8_t);
 
 #endif
