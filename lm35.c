@@ -22,7 +22,7 @@ void initADC()
     ADCSRA |= _BV(ADEN); // enable adc
     // ADCSRA |= _BV(ADSC); //first conv lasts longer
 
-    //do a quick measurement so that we have a current_temp at the beginning
+    // do a quick measurement so that we have a current_temp at the beginning
     taskPollTemp();
 }
 
@@ -32,13 +32,12 @@ void initADC()
  */
 void taskPollTemp()
 {
+    // uartTransmitStr("Polling temp task\n");
+
     ADCSRA |= _BV(ADSC);
     loop_until_bit_is_set(ADCSRA, ADIF);
     uint16_t adcval = ADC;
     registerTemp(adcval);
-
-   
-
 }
 
 /**
@@ -69,11 +68,17 @@ void registerTemp(uint16_t val)
     current_temp = tmp;
     sprintf(current_temp_string, "%d.%d", temp, decimal);
 
-
     uint8_t room = 4;
-    while(room!=0)
+    while (room != 0)
     {
-        setRoomTemp(room,tmp+(room-1)*5);
+        if (room % 2) // pseudo temp for simulation
+        {
+            setRoomTemp(room, tmp + (room - 1) * 10);
+        }
+        else
+        {
+            setRoomTemp(room, tmp - (room - 1) * 20);
+        }
         room--;
     }
     // log_adc_val(tmp);
