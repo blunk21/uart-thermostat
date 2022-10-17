@@ -5,13 +5,7 @@
 #include <stdio.h>
 #include "uart.h"
 
-static uint8_t current_page = 1;
-uint8_t *page_rows[] =
-    {
-        "               ",
-        "               ",
-        "               ",
-        "               "};
+static uint8_t current_page = 2;
 
 /**
  * @brief Initialize the display manager
@@ -45,6 +39,7 @@ void setCurrentPage(uint8_t page)
  */
 void taskPrintPage(void)
 {
+    // uartTransmitStr("Printing page task\n");
     printRoomPage(current_page);
 }
 
@@ -66,7 +61,7 @@ static void printMainMenu(void)
  *
  * @param current_page number of the page to be printed 1-4
  */
-static void printRoomPage(uint8_t current_page)
+static void printRoomPage()
 {
     if(!current_page)
     {
@@ -93,6 +88,7 @@ static void printRoomPage(uint8_t current_page)
     {
         LCD_pos(row, 1);
         uint8_t str[16];
+        // sprintf(str,"               ");
         switch (row)
         {
         case 1:
@@ -109,7 +105,7 @@ static void printRoomPage(uint8_t current_page)
             break;
         case 4:
             if (getRoomCooling(current_page))
-                sprintf(str, "Cooling ON");
+                sprintf(str, "Cooling ON ");
             else
                 sprintf(str, "Cooling OFF");
             LCD_str(str);
