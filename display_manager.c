@@ -39,7 +39,6 @@ void setCurrentPage(uint8_t page)
  */
 void taskPrintPage(void)
 {
-    // uartTransmitStr("Printing page task\n");
     printRoomPage(current_page);
 }
 
