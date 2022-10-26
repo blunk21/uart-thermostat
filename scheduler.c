@@ -19,7 +19,7 @@ void tickTasks(void)
 }
 
 /**
- * @brief Initializes the tasks found in task_list and sets up timer
+ * @brief Initializes the tasks in task_list and sets up timer
  *
  */
 void initScheduler(void)
@@ -98,18 +98,18 @@ uint8_t getTaskStatus(uint8_t id)
 
 /**
  * @brief Dispatch a task when it is ready
- * 
+ *
  */
 void dispatchTasks(void)
 {
-    for(uint8_t i=0;i<MAX_TASKS;i++)
+    for (uint8_t i = 0; i < MAX_TASKS; i++)
     {
         // check for a valid task ready to run
-        if( !task_list[i].delay &&
-             task_list[i].status == READY )
+        if (!task_list[i].delay &&
+            task_list[i].status == READY)
         {
             // task is now running
-            task_list[i].status = RUNNING;           
+            task_list[i].status = RUNNING;
             // call the task
             (*task_list[i].task)();
 
@@ -119,5 +119,5 @@ void dispatchTasks(void)
             // task is runnable again
             task_list[i].status = READY;
         }
-    }   
+    }
 }

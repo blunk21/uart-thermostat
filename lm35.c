@@ -5,8 +5,9 @@
 #include "room_manager.h"
 #include <avr/io.h>
 
-static uint16_t current_temp = 0;
+static uint16_t current_temp = 0, adcval = 0;
 static uint8_t *current_temp_string[5];
+
 char debugstring[100];
 
 /**
@@ -22,8 +23,9 @@ void initADC()
     ADCSRA |= _BV(ADEN); // enable adc
     // ADCSRA |= _BV(ADSC); //first conv lasts longer
 
-    //do a quick measurement so that we have a current_temp at the beginning
+    // do a quick measurement so that we have a current_temp at the beginning
     taskPollTemp();
+    taskRegisterTemp();
 }
 
 /**
@@ -34,11 +36,7 @@ void taskPollTemp()
 {
     ADCSRA |= _BV(ADSC);
     loop_until_bit_is_set(ADCSRA, ADIF);
-    uint16_t adcval = ADC;
-    registerTemp(adcval);
-
-   
-
+    adcval = ADC;
 }
 
 /**
@@ -56,24 +54,27 @@ void log_adc_val(uint16_t val)
 
 /**
  * @brief Converts the ADC value into temperature and stores it in string and integer format.
- *
- * @param val
  */
-void registerTemp(uint16_t val)
+void taskRegisterTemp()
 {
     uint16_t tmp = 0;
-    tmp = val * 500;
+    tmp = adcval * 500;
     tmp = tmp / 102;
     uint8_t decimal = tmp % 10;
     uint8_t temp = (tmp / 10) % 100;
     current_temp = tmp;
-    sprintf(current_temp_string, "%d.%d", temp, decimal);
-
-
+    // sprintf(current_temp_string, "%d.%d", temp, decimal);
     uint8_t room = 4;
-    while(room!=0)
+    while (room != 0)
     {
-        setRoomTemp(room,tmp+(room-1)*5);
+        if (room % 2) // pseudo temp for simulation
+        {
+            setRoomTemp(room, tmp + (room - 1) * 10);
+        }
+        else
+        {
+            setRoomTemp(room, tmp - (room - 1) * 20);
+        }
         room--;
     }
     // log_adc_val(tmp);

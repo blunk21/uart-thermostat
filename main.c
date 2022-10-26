@@ -5,6 +5,8 @@
 #include "lm35.h"
 #include "room_manager.h"
 #include "display_manager.h"
+#include "io_manager.h"
+
 #define F_CPU 16000000UL
 
 void main()
@@ -15,13 +17,17 @@ void main()
     initScheduler();
     initRoomManager();
     initDisplayManager();
+    initIOManager();
 
     // enable global interrupt
     sei();
 
     // add tasks
-    addTask(1, taskPollTemp, INTERVAL_POLL_TEMP_MS);
-    addTask(2,taskPrintPage,INTERVAL_PRINT_PAGE_MS);
+    addTask(1, taskPollTemp, INTERVAL_POLL_TEMP_100MS);
+    addTask(2, taskPrintPage, INTERVAL_PRINT_PAGE_100MS);
+    addTask(3, taskButtonCheck, INTERVAL_BUTTON_CHECK_100MS);
+    addTask(4,taskManageActuators,INTERVAL_MANAGE_ACTUATORS_100MS);
+    addTask(5,taskRegisterTemp,INTERVAL_REGISTER_TEMP_100MS);
 
     for (;;)
         dispatchTasks();
@@ -32,7 +38,7 @@ ISR(TIMER0_OVF_vect)
 {
     static uint16_t counter = 0;
     counter++;
-    if (counter == 8) // 1ms
+    if (counter == 800) // 100MS
     {
         counter = 0;
         tickTasks();

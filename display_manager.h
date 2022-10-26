@@ -6,6 +6,6 @@ void initDisplayManager(void);
 void setCurrentPage(uint8_t page);
 void taskPrintPage(void);
 static void printMainMenu(void);
-static void printRoomPage(uint8_t current_page);
+static void printRoomPage();
 
 #endif

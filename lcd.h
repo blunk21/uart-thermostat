@@ -6,8 +6,8 @@
  */ 
 
 
-#ifndef LCD_H_
-#define LCD_H_
+#ifndef _LCD_H_
+#define _LCD_H_
 #include <avr/io.h>
 #define LCD_RS	(PF1)
 #define LCD_RW	(PF2)
@@ -30,4 +30,4 @@ void lcdPrintRows(uint8_t**);
 
 
 
-#endif /* LCD_H_ */
+#endif /* _LCD_H_ */

@@ -27,21 +27,28 @@ static void createRooms()
 {
     for (uint8_t i = 0; i < MAX_ROOMS_NO; i++)
     {
-        uint8_t debugstring[100];
+        // uint8_t debugstring[100];
         Room new_room;
         new_room.number = i + 1;
         new_room.target_temperature = 225;
-        if(i%2) new_room.cooling = 0;
-        else new_room.cooling = 1;
+        if (i % 2)
+            new_room.cooling = 0;
+        else
+            new_room.cooling = 1;
 
         uint16_t pseudo_temp = getCurrentTemp();
         // sprintf(debugstring,"Initial pseudotemp= %d\n",pseudo_temp);
         // uartTransmitStr(debugstring);
         // For simulation purposes
-        pseudo_temp = pseudo_temp +  i*2;
+        if (i % 2)
+        {
+            pseudo_temp = pseudo_temp + i * 10;
+        }
+        else
+        {
+            pseudo_temp = pseudo_temp - i * 20;
+        }
         new_room.current_temp = pseudo_temp;
-
-        
 
         // sprintf(debugstring,"The new rooms pseudo temp is: %d\n",pseudo_temp);
         // uartTransmitStr(debugstring);
@@ -58,7 +65,7 @@ static void createRooms()
  */
 uint16_t getTargetRoomTemp(uint8_t room_no)
 {
-    return rooms[room_no-1].target_temperature;
+    return rooms[room_no - 1].target_temperature;
 }
 
 /**
@@ -69,7 +76,7 @@ uint16_t getTargetRoomTemp(uint8_t room_no)
  */
 void setTargetRoomTemp(uint8_t room_no, uint16_t target)
 {
-    rooms[room_no-1].target_temperature = target;
+    rooms[room_no - 1].target_temperature = target;
 }
 
 /**
@@ -96,10 +103,10 @@ void setRoomCooling(uint8_t room_no, uint8_t state)
 
 uint16_t getRoomTemp(uint8_t room_no)
 {
-    return rooms[room_no-1].current_temp;
+    return rooms[room_no - 1].current_temp;
 }
 
 void setRoomTemp(uint8_t room_no, uint16_t temp)
 {
-    rooms[room_no-1].current_temp = temp;
+    rooms[room_no - 1].current_temp = temp;
 }

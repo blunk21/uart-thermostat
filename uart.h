@@ -5,7 +5,7 @@
 
 #define BAUD_RATE 115200
 #define UBRR ((F_CPU / 8 / BAUD_RATE) - 1)
-#define UART_BUFFER_SIZE 80
+#define UART_BUFFER_SIZE 500
 
 void initUART(uint8_t);
 void uartTransmitChar(uint8_t *);
