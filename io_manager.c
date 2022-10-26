@@ -36,6 +36,7 @@ void checkButtonPress(void)
         setCurrentPage(pressed);
         // uartTransmitChar(pressed);
     }
+    return;
 }
 void controlActuators(void)
 {
@@ -54,8 +55,9 @@ void controlActuators(void)
             output |= 0x80;
         room--;
     }
-    uartTransmitChar("a");
-    PORTB &= PORTD &= ~(0xF0); // delete led state
+    PORTB &= 0x0F;
+    PORTD &= 0x0F; // delete led state
     PORTB |= 0xF0 & (output << 4);
     PORTD |= 0xF0 & output;
+    return;
 }
