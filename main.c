@@ -26,7 +26,8 @@ void main()
     addTask(1, taskPollTemp, INTERVAL_POLL_TEMP_100MS);
     addTask(2, taskPrintPage, INTERVAL_PRINT_PAGE_100MS);
     addTask(3, taskButtonCheck, INTERVAL_BUTTON_CHECK_100MS);
-    addTask(4,controlActuators,INTERVAL_MANAGE_ACTUATORS_100MS);
+    addTask(4,taskManageActuators,INTERVAL_MANAGE_ACTUATORS_100MS);
+    addTask(5,taskRegisterTemp,INTERVAL_REGISTER_TEMP_100MS);
 
     for (;;)
         dispatchTasks();
