@@ -67,8 +67,7 @@ void LCD_str(uint8_t *t)
 	// cli();
 	while (*t)
 	{
-		LCD_data(*t);
-		t++;
+		LCD_data(*t++);
 	}
 	// sei();
 }
