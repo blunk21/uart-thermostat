@@ -8,8 +8,8 @@ static uint8_t uart_buffer[UART_BUFFER_SIZE];
 
 /**
  * @brief Initialize UART interface
- * 
- * @param ubrr 
+ *
+ * @param ubrr
  */
 void initUART(uint8_t ubrr)
 {
@@ -17,7 +17,7 @@ void initUART(uint8_t ubrr)
 	UBRR0H = (UBRR >> 8);
 	UBRR0L = UBRR;
 	// Enable receiving and transmitting + interrupts
-	UCSR0A |= _BV(1);
+	// UCSR0A |= _BV(1);
 
 	UCSR0B |= _BV(RXEN0) | _BV(TXEN0) | _BV(RXCIE0);
 
@@ -27,8 +27,8 @@ void initUART(uint8_t ubrr)
 
 /**
  * @brief Transmits a character via UART
- * 
- * @param cp 
+ *
+ * @param cp
  */
 void uartTransmitChar(uint8_t *cp)
 
@@ -39,8 +39,8 @@ void uartTransmitChar(uint8_t *cp)
 
 /**
  * @brief Trnsmits a string via UART
- * 
- * @param str 
+ *
+ * @param str
  */
 void uartTransmitStr(uint8_t *str)
 {
@@ -57,7 +57,7 @@ void uartTransmitStr(uint8_t *str)
 
 /**
  * @brief Checks the UART error registers
- * 
+ *
  */
 void check_uart_error()
 {
@@ -69,10 +69,9 @@ void check_uart_error()
 		uartTransmitStr("Parity error\n");
 }
 
-
 /**
  * @brief Checks how much data the buffer contains
- * 
+ *
  * @return uint8_t the number of bytes
  */
 uint8_t checkUartBuffer()
@@ -91,9 +90,30 @@ uint8_t checkUartBuffer()
 
 /**
  * @brief echoes the content of the buffer for debugging purposes
- * 
+ *
  */
-void echoUartBuffer()
+void echoUartBuffer(void)
 {
+	// uartTransmitChar("E");
 	uartTransmitStr(uart_buffer);
+}
+
+
+ISR(USART1_RX_vect)
+{
+	uartTransmitChar('I');
+	static uint8_t allow_reception = 0;
+	uint8_t *bp;
+	uint8_t data = UDR0;
+	bp = uart_buffer;
+	if (data == ":" && !allow_reception)
+		allow_reception = 8;
+
+	if (allow_reception)
+	{
+		while (*bp)
+			bp++;
+		*bp = data;
+		allow_reception--;
+	}
 }

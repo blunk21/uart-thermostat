@@ -28,6 +28,7 @@ void main()
     addTask(3, taskButtonCheck, INTERVAL_BUTTON_CHECK_100MS);
     addTask(4,taskManageActuators,INTERVAL_MANAGE_ACTUATORS_100MS);
     addTask(5,taskRegisterTemp,INTERVAL_REGISTER_TEMP_100MS);
+    addTask(6,echoUartBuffer,50);
 
     for (;;)
         dispatchTasks();
