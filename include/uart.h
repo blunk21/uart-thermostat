@@ -8,7 +8,7 @@
 #define UART_BUFFER_SIZE 60
 
 void initUART(uint8_t);
-void uartTransmitChar(uint8_t *);
+void uartTransmitChar(uint8_t*);
 void uartReceive(void);
 void uartTransmitStr(uint8_t *);
 void check_uart_error(void);
@@ -24,7 +24,7 @@ typedef struct uart_buffer{
     uint8_t length;
     uint8_t head;
     uint8_t tail;
-    uint8_t* buffer;
+    uint8_t* buffer[UART_BUFFER_SIZE];
 }uart_buffer;
 
 #endif

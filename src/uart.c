@@ -17,12 +17,16 @@ void initUART(uint8_t ubrr)
 	UBRR0H = (UBRR >> 8);
 	UBRR0L = UBRR;
 	// Enable receiving and transmitting + interrupts
-	// UCSR0A |= _BV(1);
+	UCSR0A |= _BV(1); //double the uart speed
 
 	UCSR0B |= _BV(RXEN0) | _BV(TXEN0) | _BV(RXCIE0);
 
 	// Set up frame format
 	UCSR0C |= _BV(UCSZ01) | _BV(UCSZ00);
+
+	rx_buffer.head = 0;
+	rx_buffer.tail = 0;
+	rx_buffer.length = 0;
 }
 
 /**
@@ -75,8 +79,8 @@ void check_uart_error()
  */
 void echoUartBuffer(void)
 {
-	// uartTransmitChar("E");
-	// uartTransmitStr(uart_buffer);
+	// uartTransmitStr("E");
+	uartTransmitStr("0"+rx_buffer.length);        //<---EZT CSINÁLD MEG
 }
 
 /**
