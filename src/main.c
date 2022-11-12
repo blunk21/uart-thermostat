@@ -45,3 +45,9 @@ ISR(TIMER0_OVF_vect)
         tickTasks();
     }
 }
+
+ISR(USART0_RX_vect)
+{
+	uint8_t data = UDR0;
+	write_buffer(data);
+}
