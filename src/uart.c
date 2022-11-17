@@ -13,20 +13,21 @@ uart_buffer rx_buffer;
  */
 void initUART(uint8_t ubrr)
 {
+	rx_buffer.head = 0;
+	rx_buffer.tail = 0;
+	rx_buffer.length = 0;
 	// Set Baud Rate
 	UBRR0H = (UBRR >> 8);
 	UBRR0L = UBRR;
 	// Enable receiving and transmitting + interrupts
-	UCSR0A |= _BV(1); //double the uart speed
+	UCSR0A |= _BV(U2X0); // double the uart speed
 
 	UCSR0B |= _BV(RXEN0) | _BV(TXEN0) | _BV(RXCIE0);
 
 	// Set up frame format
 	UCSR0C |= _BV(UCSZ01) | _BV(UCSZ00);
 
-	rx_buffer.head = 0;
-	rx_buffer.tail = 0;
-	rx_buffer.length = 0;
+	
 }
 
 /**
@@ -80,7 +81,22 @@ void check_uart_error()
 void echoUartBuffer(void)
 {
 	// uartTransmitStr("E");
-	uartTransmitStr("0"+rx_buffer.length);        //<---EZT CSINÁLD MEG
+	// uint8_t len = '0' + rx_buffer.length;
+	uint8_t *bytes[10];
+	// uartTransmitChar(&len);
+	// uartTransmitStr("\n");
+	if (rx_buffer.length >= 10)
+	{
+		uint8_t i = 0;
+		read_buffer(bytes, 5);
+		// bytes[5]=0;
+		uartTransmitStr(bytes);
+
+		// uartTransmitStr("Bytes:");
+		// uartTransmitStr(bytes);
+		// uartTransmitStr("\n");
+	}
+	check_uart_error();
 }
 
 /**
@@ -114,8 +130,10 @@ static uint8_t _buffer_is_empty()
  */
 void write_buffer(uint8_t data)
 {
-	if (_buffer_is_full())
+	uint8_t full = _buffer_is_full();
+	if (full)
 	{
+		uartTransmitStr("buffer full\n");
 		return;
 	}
 	else
@@ -135,14 +153,31 @@ void write_buffer(uint8_t data)
  *
  * @return uint8_t the last character
  */
-uint8_t read_buffer()
+uint8_t read_buffer(uint8_t *dest, uint8_t len)
 {
-	if (_buffer_is_empty())
+	uint8_t empty = _buffer_is_empty();
+	if (empty)
+	{
+		uartTransmitStr("buffer empty\n");
 		return 0;
-	uint8_t retval = *(rx_buffer.buffer + rx_buffer.tail);
-	rx_buffer.length--;
-	rx_buffer.tail++;
-	if (rx_buffer.tail == UART_BUFFER_SIZE)
-		rx_buffer.tail = 0;
-	return retval;
+	}
+	uint8_t i = 0;
+	while (len - i)
+	{
+		*dest = *(rx_buffer.buffer + rx_buffer.tail);
+		rx_buffer.length--;
+		rx_buffer.tail++;
+		if (rx_buffer.tail == UART_BUFFER_SIZE)
+			rx_buffer.tail = 0;
+		i++;
+		dest++;
+	}
+	//terminating null
+	// *(dest+i) = '\0';
+	// uint8_t retval = *(rx_buffer.buffer + rx_buffer.tail);
+	// rx_buffer.length--;
+	// rx_buffer.tail++;
+	// if (rx_buffer.tail == UART_BUFFER_SIZE)
+	// 	rx_buffer.tail = 0;
+	return 1;
 }
