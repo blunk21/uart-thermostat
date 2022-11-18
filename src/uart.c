@@ -26,8 +26,6 @@ void initUART(uint8_t ubrr)
 
 	// Set up frame format
 	UCSR0C |= _BV(UCSZ01) | _BV(UCSZ00);
-
-	
 }
 
 /**
@@ -78,26 +76,26 @@ void check_uart_error()
  * @brief echoes the content of the buffer for debugging purposes
  *
  */
-void echoUartBuffer(void)
-{
-	// uartTransmitStr("E");
-	uint8_t len = '0' + rx_buffer.length;
-	uint8_t *bytes[10];
-	uartTransmitChar(&len);
-	// uartTransmitStr("\n");
-	if (rx_buffer.length >= 10)
-	{
-		uint8_t i = 0;
-		read_buffer(bytes, 5);
-		// bytes[5]=0;
-		uartTransmitStr(bytes);
+// void echoUartBuffer(void)
+// {
+// 	// uartTransmitStr("E");
+// 	uint8_t len = '0' + rx_buffer.length;
+// 	uint8_t *bytes[10];
+// 	// uartTransmitChar(&len);
+// 	// uartTransmitStr("\n");
+// 	if (rx_buffer.length >= 10)
+// 	{
+// 		uint8_t i = 0;
+// 		read_buffer(bytes, 5);
+// 		// bytes[5]=0;
+// 		uartTransmitStr(bytes);
 
-		// uartTransmitStr("Bytes:");
-		// uartTransmitStr(bytes);
-		// uartTransmitStr("\n");
-	}
-	check_uart_error();
-}
+// 		// uartTransmitStr("Bytes:");
+// 		// uartTransmitStr(bytes);
+// 		// uartTransmitStr("\n");
+// 	}
+// 	check_uart_error();
+// }
 
 /**
  * @brief check if the buffer is full
@@ -149,11 +147,12 @@ void write_buffer(uint8_t data)
 }
 
 /**
- * @brief returns the last character from the buffer
- *
- * @return uint8_t the last character
+ * @brief read buffer into destination
+ * 
+ * @param dest 
+ * @return uint8_t 1 on successful read, 0 on empty
  */
-uint8_t read_buffer(uint8_t *dest, uint8_t len)
+uint8_t read_buffer(uint8_t *dest)
 {
 	uint8_t empty = _buffer_is_empty();
 	if (empty)
@@ -161,19 +160,16 @@ uint8_t read_buffer(uint8_t *dest, uint8_t len)
 		uartTransmitStr("buffer empty\n");
 		return 0;
 	}
-	uint8_t i = 0;
-	while (len - i)
-	{
-		*dest = *(rx_buffer.buffer + rx_buffer.tail);
-		rx_buffer.length--;
-		rx_buffer.tail++;
-		if (rx_buffer.tail == UART_BUFFER_SIZE)
-			rx_buffer.tail = 0;
-		i++;
-		dest++;
-	}
-	//terminating null
-	*dest = '\0';
+
+	*dest = *(rx_buffer.buffer + rx_buffer.tail);
+	rx_buffer.length--;
+	rx_buffer.tail++;
+	if (rx_buffer.tail == UART_BUFFER_SIZE)
+		rx_buffer.tail = 0;
+	
+	
+
+	// terminating null
 	// uint8_t retval = *(rx_buffer.buffer + rx_buffer.tail);
 	// rx_buffer.length--;
 	// rx_buffer.tail++;

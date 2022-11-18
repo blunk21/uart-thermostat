@@ -13,7 +13,7 @@ void uartReceive(void);
 void uartTransmitStr(uint8_t *);
 void check_uart_error(void);
 void echoUartBuffer(void);
-uint8_t read_buffer(uint8_t*,uint8_t);
+uint8_t read_buffer(uint8_t*);
 static uint8_t _buffer_is_full(void);
 static uint8_t _buffer_is_empty(void);
 void write_buffer(uint8_t data);
