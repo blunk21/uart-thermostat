@@ -81,9 +81,9 @@ void check_uart_error()
 void echoUartBuffer(void)
 {
 	// uartTransmitStr("E");
-	// uint8_t len = '0' + rx_buffer.length;
+	uint8_t len = '0' + rx_buffer.length;
 	uint8_t *bytes[10];
-	// uartTransmitChar(&len);
+	uartTransmitChar(&len);
 	// uartTransmitStr("\n");
 	if (rx_buffer.length >= 10)
 	{
@@ -173,7 +173,7 @@ uint8_t read_buffer(uint8_t *dest, uint8_t len)
 		dest++;
 	}
 	//terminating null
-	// *(dest+i) = '\0';
+	*dest = '\0';
 	// uint8_t retval = *(rx_buffer.buffer + rx_buffer.tail);
 	// rx_buffer.length--;
 	// rx_buffer.tail++;
