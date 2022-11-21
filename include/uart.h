@@ -8,7 +8,7 @@
 #define UART_BUFFER_SIZE 60
 
 void initUART(uint8_t);
-void uartTransmitChar(uint8_t*);
+void uartTransmitChar(uint8_t);
 void uartReceive(void);
 void uartTransmitStr(uint8_t *);
 void check_uart_error(void);

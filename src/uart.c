@@ -33,11 +33,11 @@ void initUART(uint8_t ubrr)
  *
  * @param cp
  */
-void uartTransmitChar(uint8_t *cp)
+void uartTransmitChar(uint8_t cp)
 
 {
 	if (bit_is_set(UCSR0A, UDRE0))
-		UDR0 = *cp;
+		UDR0 = cp;
 }
 
 /**
@@ -53,7 +53,7 @@ void uartTransmitStr(uint8_t *str)
 	{
 		while (bit_is_clear(UCSR0A, UDRE0))
 			;
-		uartTransmitChar(cp);
+		uartTransmitChar(*cp);
 		cp++;
 	}
 }
@@ -112,7 +112,7 @@ static uint8_t _buffer_is_full()
 /**
  * @brief check if buffer is empty
  *
- * @return uint8_t
+ * @return uint8_t 1 if empty 0 if not
  */
 static uint8_t _buffer_is_empty()
 {
