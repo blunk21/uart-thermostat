@@ -6,6 +6,7 @@
 #include "room_manager.h"
 #include "display_manager.h"
 #include "io_manager.h"
+#include "commands.h"
 
 #define F_CPU 16000000UL
 
@@ -29,6 +30,7 @@ void main()
     addTask(4, taskManageActuators, INTERVAL_MANAGE_ACTUATORS_100MS);
     addTask(5, taskRegisterTemp, INTERVAL_REGISTER_TEMP_100MS);
     // addTask(6, echoUartBuffer, 50);
+    addTask(7,commandTestTask,50);
 
     for (;;)
         dispatchTasks();
