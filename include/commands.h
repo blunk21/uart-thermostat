@@ -4,7 +4,7 @@
 #define COMMAND_BUFFER_LENGTH 3
 
 uint8_t fetchCommand(uint8_t *);
-void commandTestTask(void);
+void taskFetchCommand(void);
 void initCommands(void);
 void taskExecuteCommand(void);
 void taskParseCommand(void);

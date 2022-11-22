@@ -157,7 +157,7 @@ uint8_t read_buffer(uint8_t *dest)
 	uint8_t empty = _buffer_is_empty();
 	if (empty)
 	{
-		uartTransmitStr("buffer empty\n");
+		// uartTransmitStr("buffer empty\n");
 		return 0;
 	}
 
