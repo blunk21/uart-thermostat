@@ -9,7 +9,13 @@
         "cpu-set.h": "c",
         "io.h": "c",
         "stdlib.h": "c",
-        "lcd.h": "c"
+        "lcd.h": "c",
+        "display_manager.h": "c",
+        "io_manager.h": "c",
+        "room_manager.h": "c",
+        "matrix.h": "c",
+        "timer.h": "c",
+        "lm35.h": "c"
     },
     "C_Cpp.dimInactiveRegions": false
 }

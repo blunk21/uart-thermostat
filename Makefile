@@ -25,7 +25,7 @@ SIMAVR  = simavr
 TARGET = $(lastword $(subst /, ,$(CURDIR)))
 
 # preprocessor flags:
-CPPFLAGS = -D F_CPU=$(F_CPU) -D BAUD=$(BAUD) -D MCU=\"$(MCU)\" $(INCLUDES)
+CPPFLAGS = -Iinclude -MMD -MP -D F_CPU=$(F_CPU) -D BAUD=$(BAUD) -D MCU=\"$(MCU)\" $(INCLUDES)
 #  -D       define macro
 
 # c compiler flags:
@@ -45,7 +45,7 @@ LDFLAGS = -Os -mmcu=$(MCU)
 CXXFLAGS =
 
 # add all directories with code to the wildcard:
-SOURCES = $(wildcard *.c $(LIBDIR)/*.c)
+SOURCES = $(wildcard *.c src/*.c)
 OBJECTS = $(SOURCES:.c=.o)
 HEADERS = $(SOURCES:.c=.h)
 
@@ -68,7 +68,8 @@ $(TARGET).elf: $(OBJECTS)
 	get-flash get-eeprom get-info dependency-graph
 
 clean:
-	rm -f *.elf *.hex *.vcd *.i *.s *.o dependency-graph.pdf
+	rm -f *.elf *.hex *.vcd *.i *.s *.o *.d dependency-graph.pdf
+	rm -f src/*.elf src/*.hex src/*.vcd src/*.i src/*.s src/*.o src/*.d dependency-graph.pdf
 
 size: $(TARGET).elf
 	$(AVRSIZE) -C --mcu=$(MCU) $(TARGET).elf

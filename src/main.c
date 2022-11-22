@@ -6,6 +6,7 @@
 #include "room_manager.h"
 #include "display_manager.h"
 #include "io_manager.h"
+#include "commands.h"
 
 #define F_CPU 16000000UL
 
@@ -18,6 +19,7 @@ void main()
     initRoomManager();
     initDisplayManager();
     initIOManager();
+    initCommands();
 
     // enable global interrupt
     sei();
@@ -26,8 +28,12 @@ void main()
     addTask(1, taskPollTemp, INTERVAL_POLL_TEMP_100MS);
     addTask(2, taskPrintPage, INTERVAL_PRINT_PAGE_100MS);
     addTask(3, taskButtonCheck, INTERVAL_BUTTON_CHECK_100MS);
-    addTask(4,taskManageActuators,INTERVAL_MANAGE_ACTUATORS_100MS);
-    addTask(5,taskRegisterTemp,INTERVAL_REGISTER_TEMP_100MS);
+    addTask(4, taskManageActuators, INTERVAL_MANAGE_ACTUATORS_100MS);
+    addTask(5, taskRegisterTemp, INTERVAL_REGISTER_TEMP_100MS);
+    // addTask(6, echoUartBuffer, 50);
+    addTask(7,commandTestTask,50);
+    addTask(8,taskExecuteCommand,50);
+    addTask(9,taskParseCommand,50);
 
     for (;;)
         dispatchTasks();
@@ -43,4 +49,11 @@ ISR(TIMER0_OVF_vect)
         counter = 0;
         tickTasks();
     }
+}
+
+ISR(USART0_RX_vect)
+{
+    uint8_t data = UDR0;
+        write_buffer(data);
+    check_uart_error();
 }

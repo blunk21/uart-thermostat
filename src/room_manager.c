@@ -1,6 +1,7 @@
 #include "room_manager.h"
 #include <inttypes.h>
 #include "lm35.h"
+#include <stdlib.h>
 // #include <stdio.h>
 // #include "uart.h"
 
@@ -74,9 +75,10 @@ uint16_t getTargetRoomTemp(uint8_t room_no)
  * @param room_no
  * @param target the target temperature
  */
-void setTargetRoomTemp(uint8_t room_no, uint16_t target)
+void setTargetRoomTemp(uint8_t room_no, uint8_t *target)
 {
-    rooms[room_no - 1].target_temperature = target;
+    uint16_t t = atoi(target);
+    rooms[room_no - 1].target_temperature = t;
 }
 
 /**
@@ -96,9 +98,10 @@ uint8_t getRoomCooling(uint8_t room_no)
  * @param room_no
  * @param state 1 or 0
  */
-void setRoomCooling(uint8_t room_no, uint8_t state)
+void setRoomCooling(uint8_t room_no, uint8_t *state)
 {
-    rooms[room_no - 1].cooling = state;
+    uint8_t st = atoi(state);
+    rooms[room_no - 1].cooling = st;
 }
 
 uint16_t getRoomTemp(uint8_t room_no)

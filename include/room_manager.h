@@ -16,9 +16,9 @@ typedef struct Room
 void initRoomManager();
 static void createRooms();
 uint16_t getTargetRoomTemp(uint8_t room_no);
-void setTargetRoomTemp(uint8_t room_no, uint16_t target);
+void setTargetRoomTemp(uint8_t, uint8_t*);
 uint8_t getRoomCooling(uint8_t);
-void setRoomCooling(uint8_t, uint8_t);
+void setRoomCooling(uint8_t, uint8_t*);
 uint16_t getRoomTemp(uint8_t);
 
 #endif

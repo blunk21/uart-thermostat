@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/lib/avr/**",
-                "/lib/avr/include"
+                "/lib/avr/include",
+                "/usr/avr/include/**"
             ],
             "defines": [
                 "__AVR_ATmega128__"
