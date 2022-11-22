@@ -5,33 +5,51 @@
 #include "room_manager.h"
 #include <stdlib.h>
 
-void commandTestTask(void)
+command next_command;
+static uint8_t command_string[9];
+void initCommands(void)
 {
-    uint8_t cmd[9];
-    uint8_t success = 0;
-    success = fetchCommand(cmd);
-    if (success)
-        uartTransmitStr(cmd);
-    else
-        uartTransmitStr("Command fetch failed\n");
+    next_command.func = NULL;
 }
 
-void parseCommand(uint8_t *cmd_str)
+void taskExecuteCommand(void)
 {
-    command new_command;
-    switch (cmd_str[2])
+    if (next_command.func == NULL)
+        return;
+    else
     {
-    case 't':
-        new_command.func = &setTargetRoomTemp;
-        break;
-    case 'c':
-        new_command.func = &setRoomCooling;
-        break;
+        next_command.func(next_command.room_nr, next_command.arg);
+        next_command.func = NULL;
     }
+}
 
-    new_command.room_nr = '0' + cmd_str[3];
-    strncpy(new_command.arg,&cmd_str[3],3);
-}                   //<---------------------- ADD TO COMMAND BUFFER YOU MOROn
+void commandTestTask(void)
+{
+    uint8_t success = 0;
+    success = fetchCommand(command_string);
+}
+
+void taskParseCommand()
+{
+    if (command_string[0] != NULL)
+    {
+        switch (command_string[2])
+        {
+        case 't':
+            next_command.func = &setTargetRoomTemp;
+            break;
+        case 'c':
+            next_command.func = &setRoomCooling;
+            break;
+        }
+
+        next_command.room_nr = command_string[3] - '0';
+        strncpy(next_command.arg, &command_string[4], 3);
+        command_string[0] = NULL;
+        return;
+    }
+    return;
+}
 
 uint8_t fetchCommand(uint8_t *dest)
 {

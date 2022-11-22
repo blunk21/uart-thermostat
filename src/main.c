@@ -19,6 +19,7 @@ void main()
     initRoomManager();
     initDisplayManager();
     initIOManager();
+    initCommands();
 
     // enable global interrupt
     sei();
@@ -31,6 +32,8 @@ void main()
     addTask(5, taskRegisterTemp, INTERVAL_REGISTER_TEMP_100MS);
     // addTask(6, echoUartBuffer, 50);
     addTask(7,commandTestTask,50);
+    addTask(8,taskExecuteCommand,50);
+    addTask(9,taskParseCommand,50);
 
     for (;;)
         dispatchTasks();
