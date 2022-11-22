@@ -23,7 +23,7 @@ void taskExecuteCommand(void)
     }
 }
 
-void commandTestTask(void)
+void taskFetchCommand(void)
 {
     uint8_t success = 0;
     success = fetchCommand(command_string);
