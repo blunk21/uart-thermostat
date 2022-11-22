@@ -31,9 +31,9 @@ void main()
     addTask(4, taskManageActuators, INTERVAL_MANAGE_ACTUATORS_100MS);
     addTask(5, taskRegisterTemp, INTERVAL_REGISTER_TEMP_100MS);
     // addTask(6, echoUartBuffer, 50);
-    addTask(7,commandTestTask,50);
-    addTask(8,taskExecuteCommand,50);
-    addTask(9,taskParseCommand,50);
+    addTask(7,taskFetchCommand,INTERVAL_FETCH_COMMAND);
+    addTask(8,taskExecuteCommand,INTERVAL_EXECUTE_COMMAND);
+    addTask(9,taskParseCommand,INTERVAL_PARSE_COMMAND);
 
     for (;;)
         dispatchTasks();
