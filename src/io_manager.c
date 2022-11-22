@@ -29,15 +29,28 @@ void initLEDS(void)
 
 void checkButtonPress(void)
 {
-    // uartTransmitStr("checkButtonPress called\n");
-    uint8_t pressed = matrixButton();
-    if (pressed > 0 && pressed < 5)
+    // static uint8_t prev_state = 0;
+    uint8_t state = PING & 0x1F;
+
+    switch (state)
     {
-        setCurrentPage(pressed);
-        // uartTransmitChar(pressed);
+    case 0x10:
+        setCurrentPage(1);
+        break;
+    case 0x08:
+        setCurrentPage(2);
+        break;
+    case 0x04:
+        setCurrentPage(3);
+        break;
+    case 0x02:
+        setCurrentPage(4);
+        break;
+    default:
+        break;
     }
-    return;
 }
+
 void controlActuators(void)
 {
     uint8_t room = 4;
