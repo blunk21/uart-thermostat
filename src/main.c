@@ -30,16 +30,19 @@ void main()
     addTask(3, taskButtonCheck, INTERVAL_BUTTON_CHECK_100MS);
     addTask(4, taskManageActuators, INTERVAL_MANAGE_ACTUATORS_100MS);
     addTask(5, taskRegisterTemp, INTERVAL_REGISTER_TEMP_100MS);
-    // addTask(6, echoUartBuffer, 50);
-    addTask(7,taskFetchCommand,INTERVAL_FETCH_COMMAND);
-    addTask(8,taskExecuteCommand,INTERVAL_EXECUTE_COMMAND);
-    addTask(9,taskParseCommand,INTERVAL_PARSE_COMMAND);
+    addTask(6,taskFetchCommand,INTERVAL_FETCH_COMMAND);
+    addTask(7,taskExecuteCommand,INTERVAL_EXECUTE_COMMAND);
+    addTask(8,taskParseCommand,INTERVAL_PARSE_COMMAND);
 
     for (;;)
         dispatchTasks();
     return 0;
 }
 
+/**
+ * @brief ISR for measuring time/ticks
+ * 
+ */
 ISR(TIMER0_OVF_vect)
 {
     static uint16_t counter = 0;
@@ -51,6 +54,10 @@ ISR(TIMER0_OVF_vect)
     }
 }
 
+/**
+ * @brief ISR to receive UART messages
+ * 
+ */
 ISR(USART0_RX_vect)
 {
     uint8_t data = UDR0;

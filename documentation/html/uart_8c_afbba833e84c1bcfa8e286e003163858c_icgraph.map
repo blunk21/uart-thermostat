@@ -1,0 +1,7 @@
+<map id="_buffer_is_empty" name="_buffer_is_empty">
+<area shape="rect" id="node1" title=" " coords="624,5,759,31"/>
+<area shape="rect" id="node2" href="$uart_8c.html#a7282b7b2c90e0d5fea00560e0f04c1d2" title="read buffer into destination" coords="479,5,576,31"/>
+<area shape="rect" id="node3" href="$commands_8c.html#a4f4633687698ed442baa7aecf3662258" title="Loads a command into a string if the format is correect." coords="308,5,431,31"/>
+<area shape="rect" id="node4" href="$commands_8c.html#ac952257d6ff9c485110566304a7cd674" title="Task to fetch a new command." coords="108,5,260,31"/>
+<area shape="rect" id="node5" href="$main_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " coords="5,5,60,31"/>
+</map>

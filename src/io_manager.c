@@ -1,5 +1,4 @@
 #include <avr/io.h>
-#include "matrix.h"
 #include "room_manager.h"
 #include "display_manager.h"
 #include "uart.h"
@@ -7,29 +6,11 @@
 
 void initIOManager(void)
 {
-    initMatrix();
     initLEDS();
 }
 
 void taskButtonCheck(void)
 {
-    // uartTransmitStr("Manage IO task\n");
-    checkButtonPress();
-}
-
-void taskManageActuators(void)
-{
-    controlActuators();
-}
-
-void initLEDS(void)
-{
-    DDRD |= DDRB |= 0xF0;
-}
-
-void checkButtonPress(void)
-{
-    // static uint8_t prev_state = 0;
     uint8_t state = PING & 0x1F;
 
     switch (state)
@@ -51,7 +32,7 @@ void checkButtonPress(void)
     }
 }
 
-void controlActuators(void)
+void taskManageActuators(void)
 {
     uint8_t room = 4;
     uint8_t output = 0;
@@ -73,4 +54,9 @@ void controlActuators(void)
     PORTB |= 0xF0 & (output << 4);
     PORTD |= 0xF0 & output;
     return;
+}
+
+void initLEDS(void)
+{
+    DDRD |= DDRB |= 0xF0;
 }

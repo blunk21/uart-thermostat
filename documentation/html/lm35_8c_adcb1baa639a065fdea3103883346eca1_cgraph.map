@@ -1,0 +1,4 @@
+<map id="taskRegisterTemp" name="taskRegisterTemp">
+<area shape="rect" id="node1" title="Converts the ADC value into temperature and stores it in string and integer format." coords="5,5,144,31"/>
+<area shape="rect" id="node2" href="$room__manager_8c.html#a7d51cf717678bcaed1679a228e87a829" title="Set the Room Temp." coords="192,5,307,31"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="initADC" name="initADC">
+<area shape="rect" id="node1" title="Initialize ADC peripheral." coords="5,31,76,56"/>
+<area shape="rect" id="node2" href="$lm35_8c.html#a6571f77658d75b82f19b346115d4f392" title="Initiates a conversion and stores a value in integer and string format." coords="139,5,248,31"/>
+<area shape="rect" id="node3" href="$lm35_8c.html#adcb1baa639a065fdea3103883346eca1" title="Converts the ADC value into temperature and stores it in string and integer format." coords="124,55,263,80"/>
+<area shape="rect" id="node4" href="$room__manager_8c.html#a7d51cf717678bcaed1679a228e87a829" title="Set the Room Temp." coords="311,55,425,80"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="LCD_pos" name="LCD_pos">
+<area shape="rect" id="node1" title="Sets the position of the cursor on the display." coords="761,31,840,56"/>
+<area shape="rect" id="node2" href="$lcd_8c.html#adcdd83b3c6cf56a1ed1a6de57d0687ff" title="Prints multiple rows on the display." coords="607,5,713,31"/>
+<area shape="rect" id="node4" href="$display__manager_8c.html#ac79ed11b447af3d19ba479d353b99027" title=" " coords="268,31,391,56"/>
+<area shape="rect" id="node3" href="$display__manager_8c.html#aec4a6019b46b2173ed6e0e98dd625700" title=" " coords="439,5,559,31"/>
+<area shape="rect" id="node5" href="$display__manager_8c.html#a13b4aa6f9acbd13c8bd9bea7913548f5" title="Print the page according to the current_page var." coords="108,31,220,56"/>
+<area shape="rect" id="node6" href="$main_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " coords="5,31,60,56"/>
+</map>

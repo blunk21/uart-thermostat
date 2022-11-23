@@ -1,0 +1,6 @@
+<map id="initDisplayManager" name="initDisplayManager">
+<area shape="rect" id="node1" title="Initialize the display manager." coords="5,31,155,56"/>
+<area shape="rect" id="node2" href="$lcd_8c.html#a182a54305d5aab1df13015a69aef5e3c" title="Initialize the LCD." coords="203,31,272,56"/>
+<area shape="rect" id="node3" href="$lcd_8c.html#a448327d7f33021b69571de28f9be4426" title="Send a command to the display." coords="320,5,440,31"/>
+<area shape="rect" id="node4" href="$lcd_8c.html#a7057295b37eb3f83ee46a5b172cd5e25" title="Sends enable signal to the display." coords="488,31,587,56"/>
+</map>

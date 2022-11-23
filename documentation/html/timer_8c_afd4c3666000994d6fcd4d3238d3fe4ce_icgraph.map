@@ -1,0 +1,5 @@
+<map id="initSchedulerTimer" name="initSchedulerTimer">
+<area shape="rect" id="node1" title="Creates ticks to measure time for the task scheduler." coords="263,5,407,31"/>
+<area shape="rect" id="node2" href="$scheduler_8c.html#a6278cc064fedcf08fdff1672aec86c63" title="Initializes the tasks in task_list and sets up timer." coords="108,5,215,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " coords="5,5,60,31"/>
+</map>

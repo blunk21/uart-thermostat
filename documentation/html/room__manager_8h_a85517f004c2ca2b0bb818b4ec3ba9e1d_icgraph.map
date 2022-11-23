@@ -1,0 +1,5 @@
+<map id="setRoomCooling" name="setRoomCooling">
+<area shape="rect" id="node1" title="Enable or disable cooling." coords="309,5,439,31"/>
+<area shape="rect" id="node2" href="$commands_8c.html#a5a1891009093a4f8a5a386047cec0666" title="Sets the next_command struct members according to the buffered string." coords="108,5,261,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " coords="5,5,60,31"/>
+</map>

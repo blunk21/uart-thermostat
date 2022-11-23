@@ -1,0 +1,5 @@
+<map id="LCD_str" name="LCD_str">
+<area shape="rect" id="node1" title="Write a string on the display." coords="5,5,77,31"/>
+<area shape="rect" id="node2" href="$lcd_8c.html#a5ea6d7612f6f6d2457dd284b54f92ec6" title="Send data to the display." coords="125,5,209,31"/>
+<area shape="rect" id="node3" href="$lcd_8c.html#a7057295b37eb3f83ee46a5b172cd5e25" title="Sends enable signal to the display." coords="257,5,356,31"/>
+</map>

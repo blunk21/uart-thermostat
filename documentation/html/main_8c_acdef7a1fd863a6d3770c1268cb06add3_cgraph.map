@@ -1,0 +1,43 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " coords="5,409,60,435"/>
+<area shape="rect" id="node2" href="$scheduler_8c.html#a3fb0e7342294f4fddd5c1429858083ad" title="Add a new task at the first empty place." coords="155,5,230,31"/>
+<area shape="rect" id="node3" href="$scheduler_8c.html#a07b906c5a7fbcf78d1575640fd3a94b3" title="Dispatch a task when it is ready." coords="136,55,249,80"/>
+<area shape="rect" id="node4" href="$lm35_8c.html#ab3166bd1ba3160d3bac85daddb12f947" title="Initialize ADC peripheral." coords="157,156,228,181"/>
+<area shape="rect" id="node5" href="$lm35_8c.html#a6571f77658d75b82f19b346115d4f392" title="Initiates a conversion and stores a value in integer and string format." coords="353,107,462,132"/>
+<area shape="rect" id="node6" href="$lm35_8c.html#adcb1baa639a065fdea3103883346eca1" title="Converts the ADC value into temperature and stores it in string and integer format." coords="338,157,477,183"/>
+<area shape="rect" id="node8" href="$commands_8c.html#a9d4b4faaf7ff70761030985659c648d9" title="Used only to initialize the command structs function pointer to NULL." coords="134,257,251,283"/>
+<area shape="rect" id="node9" href="$display__manager_8c.html#ad4fa12ace2d3db8785849ecbaa551193" title="Initialize the display manager." coords="741,208,891,233"/>
+<area shape="rect" id="node13" href="$io__manager_8c.html#a49ae6684a1c2ab6d1d9434f39630d061" title="Initialize the module." coords="135,460,250,485"/>
+<area shape="rect" id="node15" href="$room__manager_8c.html#a1e8375e832ee392bd8fee8acc2be02fb" title="Initializes the room manager." coords="123,509,262,535"/>
+<area shape="rect" id="node18" href="$scheduler_8c.html#a6278cc064fedcf08fdff1672aec86c63" title="Initializes the tasks in task_list and sets up timer." coords="139,559,246,584"/>
+<area shape="rect" id="node20" href="$uart_8c.html#ae9460172be957d6e27e48b8aaa2b26f7" title="Initialize UART interface." coords="153,608,232,633"/>
+<area shape="rect" id="node21" href="$io__manager_8c.html#acf8723999a0757c88c7ab0060ee9b2b4" title="Task to check for a button press." coords="126,657,259,683"/>
+<area shape="rect" id="node23" href="$commands_8c.html#aab7697fb5b38e8438765a1513a390050" title="Executes the command in the next_command struct." coords="108,707,277,732"/>
+<area shape="rect" id="node24" href="$commands_8c.html#ac952257d6ff9c485110566304a7cd674" title="Task to fetch a new command." coords="117,756,269,781"/>
+<area shape="rect" id="node28" href="$io__manager_8c.html#a673760dd995cb7dd77e63d289b1e1de9" title="Task to control the actuators." coords="325,411,489,436"/>
+<area shape="rect" id="node32" href="$commands_8c.html#a5a1891009093a4f8a5a386047cec0666" title="Sets the next_command struct members according to the buffered string." coords="116,805,269,831"/>
+<area shape="rect" id="node35" href="$display__manager_8c.html#a13b4aa6f9acbd13c8bd9bea7913548f5" title="Print the page according to the current_page var." coords="137,359,249,384"/>
+<area shape="rect" id="node7" href="$room__manager_8c.html#a7d51cf717678bcaed1679a228e87a829" title="Set the Room Temp." coords="558,157,673,183"/>
+<area shape="rect" id="node10" href="$lcd_8c.html#a182a54305d5aab1df13015a69aef5e3c" title="Initialize the LCD." coords="943,209,1013,235"/>
+<area shape="rect" id="node11" href="$lcd_8c.html#a448327d7f33021b69571de28f9be4426" title="Send a command to the display." coords="1065,260,1185,285"/>
+<area shape="rect" id="node12" href="$lcd_8c.html#a7057295b37eb3f83ee46a5b172cd5e25" title="Sends enable signal to the display." coords="1233,260,1332,285"/>
+<area shape="rect" id="node14" href="$io__manager_8c.html#ace7d1b67e9cb04c84d72e58b5fd3b6de" title="Initialize the LEDs." coords="369,460,445,485"/>
+<area shape="rect" id="node16" href="$room__manager_8c.html#a97cd8f45c13846660ec503dfa27c74fb" title=" " coords="353,509,461,535"/>
+<area shape="rect" id="node17" href="$lm35_8c.html#a2348eb84ea518acb132f1c7af6246c73" title="Get the Current Temp." coords="552,559,679,584"/>
+<area shape="rect" id="node19" href="$timer_8c.html#afd4c3666000994d6fcd4d3238d3fe4ce" title="Creates ticks to measure time for the task scheduler." coords="335,559,479,584"/>
+<area shape="rect" id="node22" href="$display__manager_8c.html#a19a438db38f9728a59127e6aa3d4f33a" title="Set the Current Page." coords="346,657,469,683"/>
+<area shape="rect" id="node25" href="$commands_8c.html#a4f4633687698ed442baa7aecf3662258" title="Loads a command into a string if the format is correect." coords="346,756,469,781"/>
+<area shape="rect" id="node26" href="$uart_8c.html#a7282b7b2c90e0d5fea00560e0f04c1d2" title="read buffer into destination" coords="567,756,664,781"/>
+<area shape="rect" id="node27" href="$uart_8c.html#afbba833e84c1bcfa8e286e003163858c" title=" " coords="749,756,883,781"/>
+<area shape="rect" id="node29" href="$room__manager_8c.html#a683a3d271a288ed847e0a131633c3977" title="Get the state of the room cooling." coords="550,411,681,436"/>
+<area shape="rect" id="node30" href="$room__manager_8c.html#a69048bdea788501d258f80c7e9503c87" title="Get the Room Temp." coords="557,460,673,485"/>
+<area shape="rect" id="node31" href="$room__manager_8c.html#a2b510a5d95c42c9870d2da83bd8db426" title="Get the target room temperature." coords="537,509,693,535"/>
+<area shape="rect" id="node33" href="$room__manager_8c.html#a062ad72a79c193da32572e1c96e2538d" title="Enable or disable cooling." coords="343,805,472,831"/>
+<area shape="rect" id="node34" href="$room__manager_8c.html#aff0e66f81ddcb6f63dd02312c25f8808" title="Set the target room temperature with a 3 digit value." coords="330,855,485,880"/>
+<area shape="rect" id="node36" href="$display__manager_8c.html#ac79ed11b447af3d19ba479d353b99027" title=" " coords="346,360,469,385"/>
+<area shape="rect" id="node37" href="$lcd_8c.html#a7844fae53385512ffbfc346efc6d4676" title="Sets the position of the cursor on the display." coords="939,259,1017,284"/>
+<area shape="rect" id="node38" href="$lcd_8c.html#a135e98802cfd45bba466b98eb8f4b874" title="Write a string on the display." coords="942,360,1014,385"/>
+<area shape="rect" id="node40" href="$display__manager_8c.html#aec4a6019b46b2173ed6e0e98dd625700" title=" " coords="555,309,675,335"/>
+<area shape="rect" id="node39" href="$lcd_8c.html#a5ea6d7612f6f6d2457dd284b54f92ec6" title="Send data to the display." coords="1083,335,1167,360"/>
+<area shape="rect" id="node41" href="$lcd_8c.html#adcdd83b3c6cf56a1ed1a6de57d0687ff" title="Prints multiple rows on the display." coords="763,309,869,335"/>
+</map>

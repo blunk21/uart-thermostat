@@ -1,0 +1,4 @@
+<map id="write_buffer" name="write_buffer">
+<area shape="rect" id="node1" title="Writes a character to the buffer if there is space." coords="96,5,197,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a084f0a9cf05b1877bd8a71a90dae7ff8" title="ISR to receive UART messages." coords="5,5,48,31"/>
+</map>

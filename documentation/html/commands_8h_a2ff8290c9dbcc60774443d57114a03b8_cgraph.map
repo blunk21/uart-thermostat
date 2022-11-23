@@ -1,0 +1,5 @@
+<map id="taskParseCommand" name="taskParseCommand">
+<area shape="rect" id="node1" title="Sets the next_command struct members according to the buffered string." coords="5,31,159,56"/>
+<area shape="rect" id="node2" href="$room__manager_8c.html#a062ad72a79c193da32572e1c96e2538d" title="Enable or disable cooling." coords="219,5,349,31"/>
+<area shape="rect" id="node3" href="$room__manager_8c.html#aff0e66f81ddcb6f63dd02312c25f8808" title="Set the target room temperature with a 3 digit value." coords="207,55,361,80"/>
+</map>

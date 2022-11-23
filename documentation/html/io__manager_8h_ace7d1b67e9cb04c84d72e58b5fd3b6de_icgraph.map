@@ -1,0 +1,5 @@
+<map id="initLEDS" name="initLEDS">
+<area shape="rect" id="node1" title="Initialize the LEDs." coords="271,5,347,31"/>
+<area shape="rect" id="node2" href="$io__manager_8c.html#a49ae6684a1c2ab6d1d9434f39630d061" title="Initialize the module." coords="108,5,223,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " coords="5,5,60,31"/>
+</map>

@@ -7,45 +7,26 @@
 
 static uint8_t current_page = 2;
 
-/**
- * @brief Initialize the display manager
- *
- */
 void initDisplayManager(void)
 {
     initLCD();
     // uartTransmitStr("Initializing display manager\n");
 
-    //LEDS
+    // LEDS
     DDRE |= 0x04;
     DDRC |= 0x80;
-
-    // printMainMenu();
 }
 
-/**
- * @brief Set the Current Page
- *
- * @param page
- */
 void setCurrentPage(uint8_t page)
 {
     current_page = page;
 }
 
-/**
- * @brief Print the page according to the current_page var
- *
- */
 void taskPrintPage(void)
 {
     printRoomPage(current_page);
 }
 
-/**
- * @brief Print the main menu
- *
- */
 static void printMainMenu(void)
 {
     uint8_t *main_menu[] = {
@@ -55,14 +36,9 @@ static void printMainMenu(void)
     lcdPrintRows(main_menu);
 }
 
-/**
- * @brief Print a page and set status led accordingly
- *
- * @param current_page number of the page to be printed 1-4
- */
 static void printRoomPage()
 {
-    if(!current_page)
+    if (!current_page)
     {
         printMainMenu();
         return;
@@ -72,17 +48,22 @@ static void printRoomPage()
     uint16_t room_temp = getRoomTemp(current_page);
     uint16_t target_temp = getTargetRoomTemp(current_page);
 
-    //set leds
-    if(target_temp>room_temp) PORTC |= 0x80;
-    else PORTC &= ~0x80;
-    if(getRoomCooling(current_page))
+    // set leds
+    if (target_temp > room_temp)
+        PORTC |= 0x80;
+    else
+        PORTC &= ~0x80;
+    if (getRoomCooling(current_page))
     {
-        if(target_temp<room_temp) PORTE |= 0x08;
-        else PORTE &= ~0x08;
+        if (target_temp < room_temp)
+            PORTE |= 0x08;
+        else
+            PORTE &= ~0x08;
     }
-    else PORTE &= ~0x08;
+    else
+        PORTE &= ~0x08;
 
-    //print the page
+    // print the page
     while (row > 0)
     {
         LCD_pos(row, 1);

@@ -1,0 +1,4 @@
+<map id="check_uart_error" name="check_uart_error">
+<area shape="rect" id="node1" title="Checks the UART error registers." coords="96,5,227,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a084f0a9cf05b1877bd8a71a90dae7ff8" title="ISR to receive UART messages." coords="5,5,48,31"/>
+</map>

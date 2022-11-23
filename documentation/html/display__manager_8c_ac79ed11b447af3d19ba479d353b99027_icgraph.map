@@ -1,0 +1,5 @@
+<map id="printRoomPage" name="printRoomPage">
+<area shape="rect" id="node1" title=" " coords="268,5,391,31"/>
+<area shape="rect" id="node2" href="$display__manager_8c.html#a13b4aa6f9acbd13c8bd9bea7913548f5" title="Print the page according to the current_page var." coords="108,5,220,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " coords="5,5,60,31"/>
+</map>

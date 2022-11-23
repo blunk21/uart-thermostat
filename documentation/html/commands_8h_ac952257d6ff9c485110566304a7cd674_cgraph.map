@@ -1,0 +1,6 @@
+<map id="taskFetchCommand" name="taskFetchCommand">
+<area shape="rect" id="node1" title="Task to fetch a new command." coords="5,5,157,31"/>
+<area shape="rect" id="node2" href="$commands_8c.html#a4f4633687698ed442baa7aecf3662258" title="Loads a command into a string if the format is correect." coords="205,5,328,31"/>
+<area shape="rect" id="node3" href="$uart_8c.html#a7282b7b2c90e0d5fea00560e0f04c1d2" title="read buffer into destination" coords="376,5,473,31"/>
+<area shape="rect" id="node4" href="$uart_8c.html#afbba833e84c1bcfa8e286e003163858c" title=" " coords="521,5,656,31"/>
+</map>
