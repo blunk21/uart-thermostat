@@ -1,0 +1,5 @@
+<map id="check_uart_error" name="check_uart_error">
+<area shape="rect" id="node1" title="Checks the UART error registers." coords="5,5,136,31"/>
+<area shape="rect" id="node2" href="$uart_8c.html#af527caa3d859ac515315aae02957a41e" title="Trnsmits a string via UART." coords="184,5,307,31"/>
+<area shape="rect" id="node3" href="$uart_8c.html#acc4306f7f7557a828bb83178c256465d" title="Transmits a character via UART." coords="355,5,489,31"/>
+</map>

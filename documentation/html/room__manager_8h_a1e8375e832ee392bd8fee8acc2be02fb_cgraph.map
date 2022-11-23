@@ -1,0 +1,5 @@
+<map id="initRoomManager" name="initRoomManager">
+<area shape="rect" id="node1" title="Initializes the room manager." coords="5,5,144,31"/>
+<area shape="rect" id="node2" href="$room__manager_8c.html#a97cd8f45c13846660ec503dfa27c74fb" title=" " coords="192,5,300,31"/>
+<area shape="rect" id="node3" href="$lm35_8c.html#a2348eb84ea518acb132f1c7af6246c73" title="Get the Current Temp." coords="348,5,475,31"/>
+</map>

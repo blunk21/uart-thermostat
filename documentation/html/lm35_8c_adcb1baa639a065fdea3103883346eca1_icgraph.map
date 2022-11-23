@@ -1,0 +1,5 @@
+<map id="taskRegisterTemp" name="taskRegisterTemp">
+<area shape="rect" id="node1" title="Converts the ADC value into temperature and stores it in string and integer format." coords="227,31,365,56"/>
+<area shape="rect" id="node2" href="$lm35_8c.html#ab3166bd1ba3160d3bac85daddb12f947" title="Initialize ADC peripheral." coords="108,5,179,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " coords="5,31,60,56"/>
+</map>

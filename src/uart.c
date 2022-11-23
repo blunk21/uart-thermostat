@@ -6,11 +6,6 @@
 
 uart_buffer rx_buffer;
 
-/**
- * @brief Initialize UART interface
- *
- * @param ubrr
- */
 void initUART(uint8_t ubrr)
 {
 	rx_buffer.head = 0;
@@ -28,11 +23,6 @@ void initUART(uint8_t ubrr)
 	UCSR0C |= _BV(UCSZ01) | _BV(UCSZ00);
 }
 
-/**
- * @brief Transmits a character via UART
- *
- * @param cp
- */
 void uartTransmitChar(uint8_t cp)
 
 {
@@ -40,11 +30,6 @@ void uartTransmitChar(uint8_t cp)
 		UDR0 = cp;
 }
 
-/**
- * @brief Trnsmits a string via UART
- *
- * @param str
- */
 void uartTransmitStr(uint8_t *str)
 {
 	uint8_t *cp;
@@ -58,10 +43,6 @@ void uartTransmitStr(uint8_t *str)
 	}
 }
 
-/**
- * @brief Checks the UART error registers
- *
- */
 void check_uart_error()
 {
 	if (bit_is_set(UCSR0A, FE0))
@@ -72,36 +53,6 @@ void check_uart_error()
 		uartTransmitStr("Parity error\n");
 }
 
-/**
- * @brief echoes the content of the buffer for debugging purposes
- *
- */
-// void echoUartBuffer(void)
-// {
-// 	// uartTransmitStr("E");
-// 	uint8_t len = '0' + rx_buffer.length;
-// 	uint8_t *bytes[10];
-// 	// uartTransmitChar(&len);
-// 	// uartTransmitStr("\n");
-// 	if (rx_buffer.length >= 10)
-// 	{
-// 		uint8_t i = 0;
-// 		read_buffer(bytes, 5);
-// 		// bytes[5]=0;
-// 		uartTransmitStr(bytes);
-
-// 		// uartTransmitStr("Bytes:");
-// 		// uartTransmitStr(bytes);
-// 		// uartTransmitStr("\n");
-// 	}
-// 	check_uart_error();
-// }
-
-/**
- * @brief check if the buffer is full
- *
- * @return uint8_t 1 if true
- */
 static uint8_t _buffer_is_full()
 {
 	if (rx_buffer.length == UART_BUFFER_SIZE)
@@ -109,11 +60,6 @@ static uint8_t _buffer_is_full()
 	return 0;
 }
 
-/**
- * @brief check if buffer is empty
- *
- * @return uint8_t 1 if empty 0 if not
- */
 static uint8_t _buffer_is_empty()
 {
 	if (rx_buffer.length == 0)
@@ -121,11 +67,6 @@ static uint8_t _buffer_is_empty()
 	return 0;
 }
 
-/**
- * @brief Writes a character to the buffer if there is space
- *
- * @param data
- */
 void write_buffer(uint8_t data)
 {
 	uint8_t full = _buffer_is_full();
@@ -146,18 +87,11 @@ void write_buffer(uint8_t data)
 	}
 }
 
-/**
- * @brief read buffer into destination
- * 
- * @param dest 
- * @return uint8_t 1 on successful read, 0 on empty
- */
 uint8_t read_buffer(uint8_t *dest)
 {
 	uint8_t empty = _buffer_is_empty();
 	if (empty)
 	{
-		// uartTransmitStr("buffer empty\n");
 		return 0;
 	}
 
@@ -166,14 +100,5 @@ uint8_t read_buffer(uint8_t *dest)
 	rx_buffer.tail++;
 	if (rx_buffer.tail == UART_BUFFER_SIZE)
 		rx_buffer.tail = 0;
-	
-	
-
-	// terminating null
-	// uint8_t retval = *(rx_buffer.buffer + rx_buffer.tail);
-	// rx_buffer.length--;
-	// rx_buffer.tail++;
-	// if (rx_buffer.tail == UART_BUFFER_SIZE)
-	// 	rx_buffer.tail = 0;
 	return 1;
 }

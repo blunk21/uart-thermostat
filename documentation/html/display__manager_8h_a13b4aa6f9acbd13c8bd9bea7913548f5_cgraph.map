@@ -1,0 +1,14 @@
+<map id="taskPrintPage" name="taskPrintPage">
+<area shape="rect" id="node1" title="Print the page according to the current_page var." coords="5,129,117,155"/>
+<area shape="rect" id="node2" href="$display__manager_8c.html#ac79ed11b447af3d19ba479d353b99027" title=" " coords="165,129,288,155"/>
+<area shape="rect" id="node3" href="$room__manager_8c.html#a683a3d271a288ed847e0a131633c3977" title="Get the state of the room cooling." coords="349,5,479,31"/>
+<area shape="rect" id="node4" href="$room__manager_8c.html#a69048bdea788501d258f80c7e9503c87" title="Get the Room Temp." coords="356,55,472,80"/>
+<area shape="rect" id="node5" href="$room__manager_8c.html#a2b510a5d95c42c9870d2da83bd8db426" title="Get the target room temperature." coords="336,104,492,129"/>
+<area shape="rect" id="node6" href="$lcd_8c.html#a7844fae53385512ffbfc346efc6d4676" title="Sets the position of the cursor on the display." coords="695,155,773,180"/>
+<area shape="rect" id="node9" href="$lcd_8c.html#a135e98802cfd45bba466b98eb8f4b874" title="Write a string on the display." coords="698,256,770,281"/>
+<area shape="rect" id="node11" href="$display__manager_8c.html#aec4a6019b46b2173ed6e0e98dd625700" title=" " coords="354,205,474,231"/>
+<area shape="rect" id="node7" href="$lcd_8c.html#a448327d7f33021b69571de28f9be4426" title="Send a command to the display." coords="821,205,941,231"/>
+<area shape="rect" id="node8" href="$lcd_8c.html#a7057295b37eb3f83ee46a5b172cd5e25" title="Sends enable signal to the display." coords="989,231,1088,256"/>
+<area shape="rect" id="node10" href="$lcd_8c.html#a5ea6d7612f6f6d2457dd284b54f92ec6" title="Send data to the display." coords="839,255,923,280"/>
+<area shape="rect" id="node12" href="$lcd_8c.html#adcdd83b3c6cf56a1ed1a6de57d0687ff" title="Prints multiple rows on the display." coords="540,205,647,231"/>
+</map>

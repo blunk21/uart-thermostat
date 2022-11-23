@@ -1,0 +1,6 @@
+<map id="taskManageActuators" name="taskManageActuators">
+<area shape="rect" id="node1" title="Task to control the actuators." coords="5,55,169,80"/>
+<area shape="rect" id="node2" href="$room__manager_8c.html#a683a3d271a288ed847e0a131633c3977" title="Get the state of the room cooling." coords="230,5,361,31"/>
+<area shape="rect" id="node3" href="$room__manager_8c.html#a69048bdea788501d258f80c7e9503c87" title="Get the Room Temp." coords="237,55,353,80"/>
+<area shape="rect" id="node4" href="$room__manager_8c.html#a2b510a5d95c42c9870d2da83bd8db426" title="Get the target room temperature." coords="217,104,373,129"/>
+</map>

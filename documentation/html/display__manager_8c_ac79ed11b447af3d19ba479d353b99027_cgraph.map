@@ -1,0 +1,13 @@
+<map id="printRoomPage" name="printRoomPage">
+<area shape="rect" id="node1" title=" " coords="5,129,128,155"/>
+<area shape="rect" id="node2" href="$room__manager_8c.html#a683a3d271a288ed847e0a131633c3977" title="Get the state of the room cooling." coords="189,5,319,31"/>
+<area shape="rect" id="node3" href="$room__manager_8c.html#a69048bdea788501d258f80c7e9503c87" title="Get the Room Temp." coords="196,55,312,80"/>
+<area shape="rect" id="node4" href="$room__manager_8c.html#a2b510a5d95c42c9870d2da83bd8db426" title="Get the target room temperature." coords="176,104,332,129"/>
+<area shape="rect" id="node5" href="$lcd_8c.html#a7844fae53385512ffbfc346efc6d4676" title="Sets the position of the cursor on the display." coords="535,155,613,180"/>
+<area shape="rect" id="node8" href="$lcd_8c.html#a135e98802cfd45bba466b98eb8f4b874" title="Write a string on the display." coords="538,256,610,281"/>
+<area shape="rect" id="node10" href="$display__manager_8c.html#aec4a6019b46b2173ed6e0e98dd625700" title=" " coords="194,205,314,231"/>
+<area shape="rect" id="node6" href="$lcd_8c.html#a448327d7f33021b69571de28f9be4426" title="Send a command to the display." coords="661,205,781,231"/>
+<area shape="rect" id="node7" href="$lcd_8c.html#a7057295b37eb3f83ee46a5b172cd5e25" title="Sends enable signal to the display." coords="829,231,928,256"/>
+<area shape="rect" id="node9" href="$lcd_8c.html#a5ea6d7612f6f6d2457dd284b54f92ec6" title="Send data to the display." coords="679,255,763,280"/>
+<area shape="rect" id="node11" href="$lcd_8c.html#adcdd83b3c6cf56a1ed1a6de57d0687ff" title="Prints multiple rows on the display." coords="380,205,487,231"/>
+</map>

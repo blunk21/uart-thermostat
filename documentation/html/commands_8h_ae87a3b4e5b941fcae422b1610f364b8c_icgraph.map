@@ -1,0 +1,5 @@
+<map id="fetchCommand" name="fetchCommand">
+<area shape="rect" id="node1" title="Loads a command into a string if the format is correect." coords="308,5,431,31"/>
+<area shape="rect" id="node2" href="$commands_8c.html#ac952257d6ff9c485110566304a7cd674" title="Task to fetch a new command." coords="108,5,260,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " coords="5,5,60,31"/>
+</map>

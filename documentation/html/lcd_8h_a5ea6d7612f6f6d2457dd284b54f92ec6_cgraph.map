@@ -1,0 +1,4 @@
+<map id="LCD_data" name="LCD_data">
+<area shape="rect" id="node1" title="Send data to the display." coords="5,5,89,31"/>
+<area shape="rect" id="node2" href="$lcd_8c.html#a7057295b37eb3f83ee46a5b172cd5e25" title="Sends enable signal to the display." coords="137,5,236,31"/>
+</map>

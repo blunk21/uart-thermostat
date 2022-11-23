@@ -20,7 +20,7 @@ void initLCD(void)
 	LCD_command(0x28);
 	LCD_command(0x02); // kurzor alaphelyzetbe allitasa
 	LCD_command(0x01); // kepernyo t�rl�s
-	LCD_command(0x0C); // kepernyo be	
+	LCD_command(0x0C); // kepernyo be
 }
 void LCD_enable()
 {
@@ -32,7 +32,7 @@ void LCD_enable()
 
 void LCD_command(uint8_t cmd)
 {
-	// cli();
+
 	_delay_ms(2);
 	LCD_CMD_PORT &= ~(1 << LCD_RS); // command
 	LCD_CMD_PORT &= ~(1 << LCD_RW);
@@ -44,11 +44,10 @@ void LCD_command(uint8_t cmd)
 	LCD_DATA_PORT &= ~(0xF0);
 	LCD_DATA_PORT |= (cmd << 4) & 0xF0;
 	LCD_enable();
-	// sei();
 }
 void LCD_data(uint8_t data)
 {
-	// cli();
+
 	_delay_ms(2);
 	LCD_CMD_PORT |= (1 << LCD_RS); // data
 	LCD_CMD_PORT &= ~(1 << LCD_RW);
@@ -60,20 +59,18 @@ void LCD_data(uint8_t data)
 	LCD_DATA_PORT &= ~(0xF0);
 	LCD_DATA_PORT |= (data << 4) & 0xF0;
 	LCD_enable();
-	// sei();
 }
 void LCD_str(uint8_t *t)
 {
-	// cli();
+
 	while (*t)
 	{
 		LCD_data(*t++);
 	}
-	// sei();
 }
 void LCD_pos(uint8_t x, uint8_t y)
 {
-	// cli();
+
 	// 1. sor 0x00-0x0F
 	// 2. sor 0x40-0x4F
 	// 3. sor 0x10-0x1F
@@ -93,19 +90,17 @@ void LCD_pos(uint8_t x, uint8_t y)
 		LCD_command((0x80 | 0x50) + y);
 		break;
 	}
-	// sei();
 }
 
 void lcdPrintRows(uint8_t **row_array)
 {
-	// cli();
+
 	LCD_command(0x01);
 	uint8_t i = 0;
 	while (i < 4)
 	{
-		LCD_pos(i +1, 1);
-		LCD_str(*(row_array+i));
+		LCD_pos(i + 1, 1);
+		LCD_str(*(row_array + i));
 		i++;
 	}
-	// sei();
 }

@@ -1,0 +1,5 @@
+<map id="log_adc_val" name="log_adc_val">
+<area shape="rect" id="node1" title="Logs the adc value for debugging purposes." coords="5,5,104,31"/>
+<area shape="rect" id="node2" href="$uart_8c.html#af527caa3d859ac515315aae02957a41e" title="Trnsmits a string via UART." coords="152,5,275,31"/>
+<area shape="rect" id="node3" href="$uart_8c.html#acc4306f7f7557a828bb83178c256465d" title="Transmits a character via UART." coords="323,5,457,31"/>
+</map>

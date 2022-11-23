@@ -1,0 +1,11 @@
+<map id="LCD_command" name="LCD_command">
+<area shape="rect" id="node1" title="Send a command to the display." coords="917,56,1037,81"/>
+<area shape="rect" id="node2" href="$lcd_8c.html#a182a54305d5aab1df13015a69aef5e3c" title="Initialize the LCD." coords="795,5,865,31"/>
+<area shape="rect" id="node5" href="$lcd_8c.html#a7844fae53385512ffbfc346efc6d4676" title="Sets the position of the cursor on the display." coords="791,107,869,132"/>
+<area shape="rect" id="node6" href="$lcd_8c.html#adcdd83b3c6cf56a1ed1a6de57d0687ff" title="Prints multiple rows on the display." coords="636,56,743,81"/>
+<area shape="rect" id="node3" href="$display__manager_8c.html#ad4fa12ace2d3db8785849ecbaa551193" title="Initialize the display manager." coords="439,5,588,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#acdef7a1fd863a6d3770c1268cb06add3" title=" " coords="5,31,60,56"/>
+<area shape="rect" id="node8" href="$display__manager_8c.html#ac79ed11b447af3d19ba479d353b99027" title=" " coords="268,56,391,81"/>
+<area shape="rect" id="node7" href="$display__manager_8c.html#aec4a6019b46b2173ed6e0e98dd625700" title=" " coords="453,56,573,81"/>
+<area shape="rect" id="node9" href="$display__manager_8c.html#a13b4aa6f9acbd13c8bd9bea7913548f5" title="Print the page according to the current_page var." coords="108,56,220,81"/>
+</map>

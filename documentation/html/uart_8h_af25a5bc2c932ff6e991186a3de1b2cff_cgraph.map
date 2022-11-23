@@ -1,0 +1,6 @@
+<map id="write_buffer" name="write_buffer">
+<area shape="rect" id="node1" title="Writes a character to the buffer if there is space." coords="5,31,107,56"/>
+<area shape="rect" id="node2" href="$uart_8c.html#aa38ecfd03f28ab0852f0f542658ba483" title=" " coords="159,5,273,31"/>
+<area shape="rect" id="node3" href="$uart_8c.html#af527caa3d859ac515315aae02957a41e" title="Trnsmits a string via UART." coords="155,55,277,80"/>
+<area shape="rect" id="node4" href="$uart_8c.html#acc4306f7f7557a828bb83178c256465d" title="Transmits a character via UART." coords="325,55,460,80"/>
+</map>

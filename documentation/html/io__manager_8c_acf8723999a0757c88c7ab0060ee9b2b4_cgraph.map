@@ -1,0 +1,4 @@
+<map id="taskButtonCheck" name="taskButtonCheck">
+<area shape="rect" id="node1" title="Task to check for a button press." coords="5,5,139,31"/>
+<area shape="rect" id="node2" href="$display__manager_8c.html#a19a438db38f9728a59127e6aa3d4f33a" title="Set the Current Page." coords="187,5,309,31"/>
+</map>

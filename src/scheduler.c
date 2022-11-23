@@ -5,10 +5,6 @@
 
 tcb_t task_list[MAX_TASKS];
 
-/**
- * @brief Decreases the delay of tasks at every tick.
- *
- */
 void tickTasks(void)
 {
     for (uint8_t i = 0; i < MAX_TASKS; i++)
@@ -18,10 +14,6 @@ void tickTasks(void)
     }
 }
 
-/**
- * @brief Initializes the tasks in task_list and sets up timer
- *
- */
 void initScheduler(void)
 {
     for (uint8_t i = 0; i < MAX_TASKS; i++)
@@ -35,13 +27,6 @@ void initScheduler(void)
     initSchedulerTimer();
 }
 
-/**
- * @brief Add a new task at the first empty place
- *
- * @param id
- * @param task
- * @param period
- */
 void addTask(uint8_t id, task_t task,
              uint16_t period)
 {
@@ -63,11 +48,6 @@ void addTask(uint8_t id, task_t task,
     }
 }
 
-/**
- * @brief Remove a task from tasklist by ID. stopped=ignore
- *
- * @param id
- */
 void deleteTask(uint8_t id)
 {
     for (uint8_t i = 0; i < MAX_TASKS; i++)
@@ -80,12 +60,6 @@ void deleteTask(uint8_t id)
     }
 }
 
-/**
- * @brief Get the status of a task
- *
- * @param id
- * @return uint8_t
- */
 uint8_t getTaskStatus(uint8_t id)
 {
     for (uint8_t i = 0; i < MAX_TASKS; i++)
@@ -96,10 +70,6 @@ uint8_t getTaskStatus(uint8_t id)
     return ERROR;
 }
 
-/**
- * @brief Dispatch a task when it is ready
- *
- */
 void dispatchTasks(void)
 {
     for (uint8_t i = 0; i < MAX_TASKS; i++)
