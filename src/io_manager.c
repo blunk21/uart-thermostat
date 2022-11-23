@@ -1,5 +1,4 @@
 #include <avr/io.h>
-#include "matrix.h"
 #include "room_manager.h"
 #include "display_manager.h"
 #include "uart.h"
